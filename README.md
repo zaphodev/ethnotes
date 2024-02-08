@@ -1,2 +1,2 @@
-# ethnote
+# ethnotes
 # _ethnotes
