@@ -48,3 +48,26 @@ params = {
 "p": SAFE_PRIME_512        // karma ve rastgele sayı üretimi için SAFE PRIME
 }
 ```
+
+___
+
+# Dagger Grafigi Oluşturma
+
+```
+def produce_dag(params, seed, length):
+    P = params["P"]
+    picker = init = pow(sha3(seed), params["w"], P)        // parametreler sözlüğünden değerler alınıyor ve sha3 ile başlangıç değeri oluşturuluyor
+    o = [init]
+    for i in range(1, length):                             // 1'den lenght'e kadar döngü
+        x = picker = (picker * init) % P                   
+        for _ in range(params["k"]):
+            x ^= o[x % i]
+        o.append(pow(x, params["w"], P))
+    return o
+```
+
+ picker bir seçici değişkeni olarak kullanılır, init bir başlangıç değeri veya tohumdur ve P bir sabit veya modül değeridir.
+
+*x = picker = (picker * init) % P ifadesi*, yeni bir picker değeri hesaplamak için kullanılır. picker değeri önceki bir değere (genellikle önceki blokun picker değeri) dayanır ve bu değeri güncellemek için kullanılır. Bu güncelleme işlemi, genellikle bir çeşit rastgelelik ekler ve farklı madencilerin farklı değerlerle denemeler yapmasını sağlar.
+
+Grafikteki her bir düğümün, yalnızca az sayıda düğümden oluşan bir alt ağacı hesaplanarak ve yalnızca az sayıda yardımcı bellek gerektirerek yeniden yapılandırabilmesini sağlamaktadır. *k = 1* durumunda alt ağacın yalnızca DAG'da ki ilk öğeye kadar giden bir değerler zinciri olduğuna dikkat edin. (Grafikteki her bir düğüm, sadece bir kaç düğüm bilgisini kullanarak ve çok az bellek kullanarak oluşturulabilir.) 
