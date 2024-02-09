@@ -94,3 +94,6 @@ def quick_calc(params, seed, p):
 ```
 
 *k = 1* için önbelleği gereksiz olduğunu unutmayın, ancak daha fazla optimizasyon aslında DAG'ın ilk birkaç bin değerini önceden hesaplar ve bunu hesaplamalar için statik bir önbellek olarak tutar. 
+
+___
+
