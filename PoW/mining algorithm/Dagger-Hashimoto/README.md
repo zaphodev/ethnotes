@@ -71,3 +71,26 @@ def produce_dag(params, seed, length):
 *x = picker = (picker * init) % P ifadesi*, yeni bir picker değeri hesaplamak için kullanılır. picker değeri önceki bir değere (genellikle önceki blokun picker değeri) dayanır ve bu değeri güncellemek için kullanılır. Bu güncelleme işlemi, genellikle bir çeşit rastgelelik ekler ve farklı madencilerin farklı değerlerle denemeler yapmasını sağlar.
 
 Grafikteki her bir düğümün, yalnızca az sayıda düğümden oluşan bir alt ağacı hesaplanarak ve yalnızca az sayıda yardımcı bellek gerektirerek yeniden yapılandırabilmesini sağlamaktadır. *k = 1* durumunda alt ağacın yalnızca DAG'da ki ilk öğeye kadar giden bir değerler zinciri olduğuna dikkat edin. (Grafikteki her bir düğüm, sadece bir kaç düğüm bilgisini kullanarak ve çok az bellek kullanarak oluşturulabilir.) 
+
+___ 
+
+# Hafif İstemci Değerlendirmesi (LIGHT CLIENT EVALUATION)
+```
+def quick_calc(params, seed, p):
+    w, P = params["w"], params["P"]
+    cache = {}                                     // params sözlüğünden w ve P değerleri alınır ardından cache adlı sözlük oluşturuluyor
+    def quick_calc_cached(p):
+        if p in cache:
+            pass
+        elif p == 0:
+            cache[p] = pow(sha3(seed), w, P)
+        else:
+            x = pow(sha3(seed), (p + 1) * w, P)
+            for _ in range(params["k"]):
+                x ^= quick_calc_cached(x % p)
+            cache[p] = pow(x, w, P)
+        return cache[p]
+    return quick_calc_cached(p)
+```
+
+*k = 1* için önbelleği gereksiz olduğunu unutmayın, ancak daha fazla optimizasyon aslında DAG'ın ilk birkaç bin değerini önceden hesaplar ve bunu hesaplamalar için statik bir önbellek olarak tutar. 
