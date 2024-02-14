@@ -26,3 +26,18 @@ x=3, P=11
 
 3**3 = 27 
 ```
+
+
+# Lehmer Random Number Generator 
+*produce_dag* işlevi tarafsız rastgele sayılar üretmesi gerekmese de, ```seed**i % P```'nin yalnızda bir avuç değer alması potansiyel bir tehdittir(bu modeli tanıyan madenciler, tanımayanlara göre avantaj sağlayabilir).
+ Tohumun(seed) i kuvveti P ile modunu alırken küçük sayılar almak sınırlı bir dizi değeri alabilir. Bu durumda, üretilen rastgele sayılar belirli bir desene veya küçük bir sayı kümesine sıkışabilir.
+
+ Örneğin, seed=2 P=10 olsun:
+```
+1 seed mod P => 2*1 mod 10 = 2  !!
+2 seed mod P => 2*2 mod 10 = 4
+3 seed mod P => 2*3 mod 10 = 8
+4 seed mod P => 2*4 mod 10 = 6
+5 seed mod P => 2*5 mod 10 = 2  !!
+```
+Burada döngü başlıyor, çünkü 2**5 ile 2**1 aynıdır. Bu durumda ifade 2,4,6,8 değerlerine sıkışmış oluyor.
