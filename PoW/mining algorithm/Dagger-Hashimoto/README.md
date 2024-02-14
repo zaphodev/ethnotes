@@ -30,7 +30,7 @@ ___
 
 # PARAMETRELER 
 
-SAFE_PRIME_512 = 2**512 - 38117 
+SAFE_PRIME_512 = 2^512 - 38117 
 
 ```
 params = {
@@ -39,7 +39,7 @@ params = {
 
 "cache_size": 2500,        // hafif istemcinin önbelleğinin boyutu
 
-"diff": 2**14,             // zorluk
+"diff": 2^14,             // zorluk
 
 "epochtime": 100000,       // blok cinsinden bir dönemin uzunluğu, veri kümesinin ne sıklıkla güncellendiği
 "k": 1,                    // bir düğümün ebeveyn sayısı
