@@ -41,3 +41,14 @@ x=3, P=11
 5 seed mod P => 2*5 mod 10 = 2  !!
 ```
 Burada döngü başlıyor, çünkü 2**5 ile 2**1 aynıdır. Bu durumda ifade 2,4,6,8 değerlerine sıkışmış oluyor.
+
+Bu tür açıklardan kaçınmak için sayı teorisiden elde edilen bir sonuca başvurulur. SafePrime(Güvenli Asal), ```(P-1)/2```'de asal olacak şekilde bir asal P olara tanımlanır. Multiplicative Group(Çarpımsal Grup) Z/nZ üyesinini x üyesinin sırasını minimum m olarak tanımlanır. 
+
+Örnekle:
+
+# Gizli Anahtar Değişimi (Diffle-Hellman Anahtar Değişimi)
+
+* Alice ve Bob güvenli bir şekilde anahtarlarını paylaşmak istiyorlar.
+* Alice ve Bob her biri için rastgele bir özel anahtar seçer(a,b).
+* ```g**a mod P``` ve ```g**b mod P``` hesaplanır ve bu değerler karşı tarafa paylaşılır. Her iki tarafta ```g**ab mod P``` değerini hesaplayabilir ve bu ortak anahtar olarak kullanılabilir.  (g = çarpan grubu elemanı(generator))
+* Elinde sadece ```g**a mod P``` ve ```g**b mod P``` olan bir saldırgan, gerçek anahtarı elde etmesi oldukça zordur, çünkü özel a ve b değerlerini bilmeksizin hesaplanamaz.
