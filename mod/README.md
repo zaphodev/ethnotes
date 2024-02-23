@@ -71,3 +71,12 @@ ___
 # Observation 1
 Güvenli bir asal P için, Z/PZ çarpımsal grubunun bir üyesi olsun. Eğer, 
 ```x mod P ≠ 1 mod P``` hem de ```x mod P ≠ P-1 mod P``` ise, o zaman x'in sırası *P-1* ya da *(P-1)/2* olmalıdır.
+
+Örneğin: 
+
+P=11, x=2 olsun,
+
+```2 mod 11 ≠ 1 mod 11``` ve ayrıca ```2 mod 11 ≠ 10 mod 11``` 
+Observation 1'e göre x=2 elemanının sırasıyla ya ```11-1=10``` ya da ```(11-1)/2 = 5``` olmalıdır.
+
+=> Gerçekten de ```2^^10 mod 11 = 1``` ve ```2^^5 mod 11 = 10``` olduğu görülür. 
