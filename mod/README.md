@@ -52,3 +52,22 @@ Bu tür açıklardan kaçınmak için sayı teorisiden elde edilen bir sonuca ba
 * Alice ve Bob her biri için rastgele bir özel anahtar seçer(a,b).
 * ```g^a mod P``` ve ```g^b mod P``` hesaplanır ve bu değerler karşı tarafa paylaşılır. Her iki tarafta ```g^ab mod P``` değerini hesaplayabilir ve bu ortak anahtar olarak kullanılabilir.  (g = çarpan grubu elemanı(generator))
 * Elinde sadece ```g^a mod P``` ve ```g^b mod P``` olan bir saldırgan, gerçek anahtarı elde etmesi oldukça zordur, çünkü özel a ve b değerlerini bilmeksizin hesaplanamaz.
+
+___
+
+# RSA Şifrelemesi
+
+RSA şifreleme algoritması, 
+örneğin:
+
+* Alice, Bob'un açık anahtarını kullanarak mesajını şifreler.
+* Bob mesajı almak için özel anahtarını kullanarak şifreyi çözer.
+* Eğer saldırgan, mesajı almışsa ve şifresini çözmeye çalışıyorsa, bu işlem [Safe Prime](https://en.wikipedia.org/wiki/Safe_and_Sophie_Germain_primes) ve [Multiplicative Group](https://en.wikipedia.org/wiki/Multiplicative_group_of_integers_modulo_n) dayandığı için çok zor olacaktır.
+
+
+
+___
+
+# Observation 1
+Güvenli bir asal P için, Z/PZ çarpımsal grubunun bir üyesi olsun. Eğer, 
+```x mod P ≠ 1 mod P``` hem de ```x mod P ≠ P-1 mod P``` ise, o zaman x'in sırası *P-1* ya da *(P-1)/2* olmalıdır.
