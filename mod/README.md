@@ -114,3 +114,10 @@ Dolayısıyla x, benzersiz olan Z/nZ'nun çarpımsal kimliği olmalıdır. Varsa
 ```x = P-1``` olmadıkça sırası 2 olamaz çünkü bu, P'nin asal olmasını ihlal eder.
 
   Yukarıda ki önermeden, yinelenen ```(picker*init)%P```nin en az ```(P-1)/2``` döngü uzunluğuna sahip olacağını anlayabiliriz. Bunun nedeni, P'yi yaklaşık ikinin daha büyük kuvvetine eşit güvenli bir asal olarak seçmemiz ve *init*'in ```[2,2^256+1]``` aralığında olmasıdır. P'nin büyüklüğünü göz önüne alırsak, modüler üstellikten asla bir döngü beklememeliyiz.
+
+
+DAG'de ki ilk hücreyi (*init etiketi değişkeni*) atarken ```pow(sha3(seed)+2,3,P)``` hesabı yapılır. İlk bakışta bu, sonucun ne 1 ne de P-1 
+olacağını garanti etmez. Bununla birlikte, P-1 güvenli bir asal olduğundan, Observation 1(Gözlem 1)'in doğal sonucu olan aşağıda ki ek güvenceye sahip;
+
+Observation 2(Gözlem 2), Güvenli bir asal *P'nin x, Z/PZ* multiplicative group'un bir üyesi olsun ve *w* bir doğal sayı olsun. 
+Eğer ```x mod P ≠ 1 mod P``` ve ```x mod P ≠ P-1 mod P```, ayrıca ```w mod P ≠ P-1 mod P``` ve ```w mod P ≠ 0 mod P``` ise, o zaman ```x^w mod P ≠ 1``` ve ```x^w mod P ≠ P-1 mod P```
