@@ -119,5 +119,18 @@ Dolayısıyla x, benzersiz olan Z/nZ'nun çarpımsal kimliği olmalıdır. Varsa
 DAG'de ki ilk hücreyi (*init etiketi değişkeni*) atarken ```pow(sha3(seed)+2,3,P)``` hesabı yapılır. İlk bakışta bu, sonucun ne 1 ne de P-1 
 olacağını garanti etmez. Bununla birlikte, P-1 güvenli bir asal olduğundan, Observation 1(Gözlem 1)'in doğal sonucu olan aşağıda ki ek güvenceye sahip;
 
-Observation 2(Gözlem 2), Güvenli bir asal *P'nin x, Z/PZ* multiplicative group'un bir üyesi olsun ve *w* bir doğal sayı olsun. 
+**Observation 2**(Gözlem 2), Güvenli bir asal *P'nin x, Z/PZ* multiplicative group'un bir üyesi olsun ve *w* bir doğal sayı olsun. 
 Eğer ```x mod P ≠ 1 mod P``` ve ```x mod P ≠ P-1 mod P```, ayrıca ```w mod P ≠ P-1 mod P``` ve ```w mod P ≠ 0 mod P``` ise, o zaman ```x^w mod P ≠ 1``` ve ```x^w mod P ≠ P-1 mod P```
+
+
+
+___
+
+# Karma İşlevi Olarak Modüler Üstel Alma 
+ *P ve w*' nin belirli değerleri için (x, w, P) fonksiyonunun birçok çarpışması olabilir. Örneğin pow(x, 9, 19) yalnızca {1, 18} değerlerini alır. 
+  P'nin asal olduğu göz önüne alındığında, modüler bir üstel karma işlevi için uygun bir w, aşağıda ki sonuç kullanılarak seçilebilir:
+
+  **Observation 3**, P bir asal olsun; *w ve P-1* göreceli olarak ancak ve ancak Z/PZ'da ki tüm a ve b için; ```a^w mod P ≡  b^w mod P``` ancak ve ancak 
+  ```a mod P ≡ b mod P``` ise 
+
+  Böylece, P'nin asal ve w'nin P-1'e göreli olarak asal olduğu göz önüne alındığında **```|{pow (x, w, P) : x ∈ Z}| = P```**, karma fonksiyonunun mümkün olan minimum çarpışma oranına sahipm olduğunu ima eder.
