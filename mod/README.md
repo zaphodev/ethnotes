@@ -102,3 +102,15 @@ g^1 mod 7 => 3^1 mod 7 = 1
 Burada ```g = 3``` elemanın çarpan grubunda ki sırası(order) (g)=6 oluyor. Çünkü ```g^6 mod 7 ≠ 1 mod 7```    (burada m < 6)
 
 => Eğer g elemanının sırası küçükse, bu durum "Dönme Saldırısı" gibi zayıf noktaları açığa çıkarabilir.
+
+
+
+___
+
+[Fermat's Little Theorem'ine](https://en.wikipedia.org/wiki/Fermat%27s_little_theorem) göre x'in sırası 1 olamaz. 
+
+Dolayısıyla x, benzersiz olan Z/nZ'nun çarpımsal kimliği olmalıdır. Varsayım olarak ```x ≠ 1``` olduğunu varsaydığımız için bu mümkün değildir. 
+
+```x = P-1``` olmadıkça sırası 2 olamaz çünkü bu, P'nin asal olmasını ihlal eder.
+
+  Yukarıda ki önermeden, yinelenen ```(picker*init)%P```nin en az ```(P-1)/2``` döngü uzunluğuna sahip olacağını anlayabiliriz. Bunun nedeni, P'yi yaklaşık ikinin daha büyük kuvvetine eşit güvenli bir asal olarak seçmemiz ve *init*'in ```[2,2^256+1]``` aralığında olmasıdır. P'nin büyüklüğünü göz önüne alırsak, modüler üstellikten asla bir döngü beklememeliyiz.
