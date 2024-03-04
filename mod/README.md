@@ -80,3 +80,25 @@ P=11, x=2 olsun,
 Observation 1'e göre x=2 elemanının sırasıyla ya ```11-1=10``` ya da ```(11-1)/2 = 5``` olmalıdır.
 
 => Gerçekten de ```2^^10 mod 11 = 1``` ve ```2^^5 mod 11 = 10``` olduğu görülür. 
+
+
+___
+
+# Multiplicative Group
+
+Bir elemanın çarpan grubunda ki sırası, örnekle:
+
+*mod = 7 üzerinden çalışalım ve g = 3 olsun.*
+
+```
+g^1 mod 7 => 3^1 mod 7 = 3
+g^2 mod 7 => 3^1 mod 7 = 2
+g^3 mod 7 => 3^1 mod 7 = 6
+g^4 mod 7 => 3^1 mod 7 = 4
+g^5 mod 7 => 3^1 mod 7 = 5
+g^1 mod 7 => 3^1 mod 7 = 1
+```
+
+Burada ```g = 3``` elemanın çarpan grubunda ki sırası(order) (g)=6 oluyor. Çünkü ```g^6 mod 7 ≠ 1 mod 7```    (burada m < 6)
+
+=> Eğer g elemanının sırası küçükse, bu durum "Dönme Saldırısı" gibi zayıf noktaları açığa çıkarabilir.
