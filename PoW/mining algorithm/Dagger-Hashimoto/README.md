@@ -51,7 +51,7 @@ params = {
 
 ___
 
-# Dagger Grafigi Oluşturma
+# Dagger Grafiği Oluşturma
 
 ```
 def produce_dag(params, seed, length):
@@ -68,7 +68,7 @@ def produce_dag(params, seed, length):
 
  picker bir seçici değişkeni olarak kullanılır, init bir başlangıç değeri veya tohumdur ve P bir sabit veya modül değeridir.
 
-*x = picker = (picker * init) % P ifadesi*, yeni bir picker değeri hesaplamak için kullanılır. picker değeri önceki bir değere (genellikle önceki blokun picker değeri) dayanır ve bu değeri güncellemek için kullanılır. Bu güncelleme işlemi, genellikle bir çeşit rastgelelik ekler ve farklı madencilerin farklı değerlerle denemeler yapmasını sağlar.
+```x = picker = (picker * init) % P``` ifadesi, yeni bir picker değeri hesaplamak için kullanılır. picker değeri önceki bir değere (genellikle önceki blokun picker değeri) dayanır ve bu değeri güncellemek için kullanılır. Bu güncelleme işlemi, genellikle bir çeşit rastgelelik ekler ve farklı madencilerin farklı değerlerle denemeler yapmasını sağlar.
 
 Grafikteki her bir düğümün, yalnızca az sayıda düğümden oluşan bir alt ağacı hesaplanarak ve yalnızca az sayıda yardımcı bellek gerektirerek yeniden yapılandırabilmesini sağlamaktadır. *k = 1* durumunda alt ağacın yalnızca DAG'da ki ilk öğeye kadar giden bir değerler zinciri olduğuna dikkat edin. (Grafikteki her bir düğüm, sadece bir kaç düğüm bilgisini kullanarak ve çok az bellek kullanarak oluşturulabilir.) 
 
