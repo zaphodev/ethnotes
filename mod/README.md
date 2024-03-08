@@ -141,6 +141,7 @@ ___
 Örneğin: 
 
 4'ün bölenleri : 1, 2, 4 
+
 15'in bölenleri : 1, 3, 5, 15 
 
 *(Ortak bölenleri yoktur. Bu nedenle, 4 ve 15 göreceli asal sayılardır.)*
