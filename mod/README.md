@@ -134,3 +134,13 @@ ___
   ```a mod P ≡ b mod P``` ise 
 
   Böylece, P'nin asal ve w'nin P-1'e göreli olarak asal olduğu göz önüne alındığında **```|{pow (x, w, P) : x ∈ Z}| = P```**, karma fonksiyonunun mümkün olan minimum çarpışma oranına sahipm olduğunu ima eder.
+
+
+**Göreceli Asal Nedir?**
+
+Örneğin: 
+
+4'ün bölenleri : 1, 2, 4 
+15'in bölenleri : 1, 3, 5, 15 
+
+*(Ortak bölenleri yoktur. Bu nedenle, 4 ve 15 göreceli asal sayılardır.)*
