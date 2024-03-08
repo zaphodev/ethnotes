@@ -95,5 +95,33 @@ def quick_calc(params, seed, p):
 
 *k = 1* için önbelleği gereksiz olduğunu unutmayın, ancak daha fazla optimizasyon aslında DAG'ın ilk birkaç bin değerini önceden hesaplar ve bunu hesaplamalar için statik bir önbellek olarak tutar. 
 
+
+
 ___
+# Daha Verimli Önbellek Tabanlı Değerlendirme Algoritması
+
+```
+def quick_calc(params, seed, p):
+    cache = produce_dag(params, seed, params["cache_size"])
+    return quick_calc_cached(cache, params, p)
+def quick_calc_cached(cache, params, p):
+    P = params["P"]
+    if p < len(cache):         
+        return cache[p]                             // Eğer p önbellek boyutundan küçükse, önbellek doğrudan değeri döndürüyor.
+    else:
+        x = pow(cache[0], p + 1, P)
+        for _ in range(params["k"]):
+            x ^= quick_calc_cached(cache, params, x % p)
+        return pow(x, params["w"], P)
+def quick_hashimoto(seed, dagsize, params, header, nonce):
+    cache = produce_dag(params, seed, params["cache_size"])
+    return quick_hashimoto_cached(cache, dagsize, params, header, nonce)
+def quick_hashimoto_cached(cache, dagsize, params, header, nonce):
+    m = dagsize // 2
+    mask = 2**64 - 1
+    mix = sha3(encode_int(nonce) + header)
+    for _ in range(params["accesses"]):
+        mix ^= quick_calc_cached(cache, params, m + (mix & mask) % m)
+    return dbl_sha3(mix)                          // Elde edilen 'mix' değeri  çift SHA-3 hash'ini hesaplar ve bunu döndürür.
+```
 
