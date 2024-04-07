@@ -24,9 +24,12 @@ imzalayıp imzalamadığını gösterir. (yani aktif olup olmadıklarını ve bl
 
 
 ```signature:``` Tekil doğrulayıcının imzalarını toplayan bir BLS imzası.
+___
 
 
-*Tasdikleyici bir doğrulayıcı için ilk görev 'data' inşaasıdır.*
+***Tasdikleyici bir doğrulayıcı için ilk görev 'data' inşaasıdır.***
+
+
 
 **data** bilgileri (ayrıntıları):
 
