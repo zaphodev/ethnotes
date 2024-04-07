@@ -42,3 +42,6 @@ ___
 ```source:``` Doğrulayıcıların neyi en güncel kabul edilebilir blok olarak gördüğünü belirten kesinlik oyununun bir kısmı.
 
 ```target:``` Doğrulayıcıların neyi mevcut dönemin ilk bloğu olarak gördüğünü belirten kesinlik oyununun bir kısmı.
+
+**'data' inşa edildiğinde, doğrulayıcı 'aggregation_bits' içinde kendi doğrulayıcı endeksine delen biti 0'dan 1'e çevirerek katılım sağlandığı gösterilebilir.
+Son olarak, doğrulayıcı tasdiki imzalar ve ağa yayınlar.**
