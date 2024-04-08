@@ -64,3 +64,36 @@ ___
  ``` base reward = validator effective balance x 2^6 / SORT ```
 
  *SORT*: Tüm aktif doğrulayıcıların etkili dengesi
+
+
+
+___
+
+
+
+# Kısaca Bir Tasdik Saldırısı (Olası)
+
+- Saldırgan, bir bloğu(B) belirli bir zaman diliminde oluşturur ve bu blok için ispat(proof) sağlar.
+- Ancak bir bloğu ağdaki diğer doğrulayıcılara açıklamaz ve saklar.
+- Bir sonraki zaman diliminde (n+1), saldırgan yine bir blok oluşturur ve bu sefer bir bloğu ağa yayınlar.
+- Daha sonra, saldırgan bir sonraki zaman diliminde (n+2) geçtiğinde, dürüst bir doğrulayıcı başka bir blok önerir(C).
+- Aynı anda saldırgan önceki zaman diliminde oluşturduğu ve sakladığı bloğu(B) ve o blok için yaptığı ispatları yayınlar.
+- Saldırgan blok B'nin varlığını inkar etme gücü kazanır, çünkü aynı anda iki farklı bloğu (B, C) yayınlar.
+- Dürüst doğrulayıcı olan D, hangi bloğun daha ağır olduğunu seçer. Saldırgan, bu seçimde blok D'nin B üzerine inşa edilmesinin C üzerine inşa edilmesinden daha ağır olduğunu göstererek, D'nin C'yi seçmesini engeller.
+
+
+*(Bu tür saldırıları önlemek için çeşitli dengeleme yöntemleri ve güvenlik önlemleri araştırılıyor).*
+
+https://ethereum.org/content/translations/tr/developers/docs/consensus-mechanisms/pos/attack-and-defense/reorg-schematic.png
+
+
+
+___
+
+
+
+
+<h2>Doğrulayıcı Anahtarları</h2>
+https://ethereum.org/content/translations/tr/developers/docs/consensus-mechanisms/pos/keys/validator-key-schematic.png
+
+https://ethereum.org/content/translations/tr/developers/docs/consensus-mechanisms/pos/keys/multiple-keys.png
