@@ -45,3 +45,22 @@ ___
 
 **'data' inşa edildiğinde, doğrulayıcı 'aggregation_bits' içinde kendi doğrulayıcı endeksine delen biti 0'dan 1'e çevirerek katılım sağlandığı gösterilebilir.
 Son olarak, doğrulayıcı tasdiki imzalar ve ağa yayınlar.**
+
+Tasdik yaşam döngüsü aşağıdaki şemada belirtilmiştir:
+
+https://ethereum.org/content/translations/tr/developers/docs/consensus-mechanisms/pos/attestations/attestation_schematic.png 
+
+
+___ 
+
+
+
+# Ödüller
+ Doğrulayıcılar tasdikleri bildikleri için ödül alırlar. Tasdik ödülü iki değişkene bağlıdır; ```base reward (ana ödül)``` ve ```inclusion delay (dahil etme gecikmesi)```. *inclusion delay* için en iyi durum 1'e eşit olmasıdır. 
+
+
+ ```(tasdik ödülü)attestation reward = 7/8 base reward x (1 / inclusion delay)```
+
+ ``` base reward = validator effective balance x 2^6 / SORT ```
+
+ *SORT*: Tüm aktif doğrulayıcıların etkili dengesi
